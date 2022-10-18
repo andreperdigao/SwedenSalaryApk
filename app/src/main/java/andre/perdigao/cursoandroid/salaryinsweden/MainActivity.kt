@@ -68,27 +68,76 @@ class MainActivity : AppCompatActivity() {
 
         btnCalculate.setOnClickListener {
 
-            Salary = editSalaryValue.text.toString().toInt()
-            Apartment = editRentValue.text.toString().toInt()
-            Electricity = editElectricityValue.text.toString().toInt()
-            Internet = editInternetValue.text.toString().toInt()
-            Food = editFoodValue.text.toString().toInt()
-            Transport = editTransportValue.text.toString().toInt()
-            Insurance = editInsuranceValue.text.toString().toInt()
+            if (editSalaryValue.text.toString().isEmpty()) {
 
-            Net = (Salary * Tax).toInt()
-            Cost = Apartment + Electricity + Internet + Food + Transport + Insurance
-            Rest = Net - Cost
+                editSalaryValue.setError("Please insert salary!")
+                editSalaryValue.requestFocus()
 
-            txtNetSalaryValue.setText(Net.toString())
-            txtLifeCostValue.setText(Cost.toString())
-            txtRestValue.setText(Rest.toString())
+            }
 
-            closeKeyboard(txtRestValue)
+            else if (editRentValue.text.toString().isEmpty()) {
+
+                editRentValue.setError("Please insert Rent Cost!")
+                editRentValue.requestFocus()
+            }
+
+            else if (editElectricityValue.text.toString().isEmpty()) {
+
+                editElectricityValue.setError("Please insert Electricity Cost!")
+                editElectricityValue.requestFocus()
+            }
+
+            else if (editInternetValue.text.toString().isEmpty()) {
+
+                editInternetValue.setError("Please insert Broadband Cost!")
+                editInternetValue.requestFocus()
+            }
+
+            else if (editFoodValue.text.toString().isEmpty()) {
+
+                editFoodValue.setError("Please insert Food Cost!")
+                editFoodValue.requestFocus()
+            }
+
+            else if (editTransportValue.text.toString().isEmpty()) {
+
+                editTransportValue.setError("Please insert Transport Cost!")
+                editTransportValue.requestFocus()
+            }
+
+            else if (editInsuranceValue.text.toString().isEmpty()) {
+
+                editInsuranceValue.setError("Please insert Insurance Cost!")
+                editInsuranceValue.requestFocus()
+            }
+
+            else {
 
 
-            Toast.makeText(this,"Calculating...",
-            Toast.LENGTH_SHORT).show()
+                Salary = editSalaryValue.text.toString().toInt()
+                Apartment = editRentValue.text.toString().toInt()
+                Electricity = editElectricityValue.text.toString().toInt()
+                Internet = editInternetValue.text.toString().toInt()
+                Food = editFoodValue.text.toString().toInt()
+                Transport = editTransportValue.text.toString().toInt()
+                Insurance = editInsuranceValue.text.toString().toInt()
+
+                Net = (Salary * Tax).toInt()
+                Cost = Apartment + Electricity + Internet + Food + Transport + Insurance
+                Rest = Net - Cost
+
+                txtNetSalaryValue.setText(Net.toString())
+                txtLifeCostValue.setText(Cost.toString())
+                txtRestValue.setText(Rest.toString())
+
+                closeKeyboard(txtRestValue)
+
+
+                Toast.makeText(
+                    this, "Calculating...",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
 
         }
 
