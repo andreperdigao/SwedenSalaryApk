@@ -11,19 +11,19 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 
-class MainActivity : AppCompatActivity() {
+var Salary = 0
+var Apartment = 0
+var Internet = 0
+var Electricity = 0
+var Food = 0
+var Transport = 0
+var Insurance = 0
+var Net = 0
+var Cost = 0
+var Rest = 0
+val Tax = 0.7618
 
-    var Salary = 0
-    var Apartment = 0
-    var Internet = 0
-    var Electricity = 0
-    var Food = 0
-    var Transport = 0
-    var Insurance = 0
-    var Net = 0
-    var Cost = 0
-    var Rest = 0
-    val Tax = 0.75
+class MainActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
