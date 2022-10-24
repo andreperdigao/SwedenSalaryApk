@@ -13,51 +13,51 @@ import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
-    var Salary = 0
-    var Apartment = 0
-    var Internet = 0
-    var Electricity = 0
-    var Food = 0
-    var Transport = 0
-    var Insurance = 0
-    var Net = 0
-    var Cost = 0
-    var Rest = 0
-    val Tax = 0.7618
+    var salary = 0
+    var apartment = 0
+    var internet = 0
+    var electricity = 0
+    var food = 0
+    var transport = 0
+    var insurance = 0
+    var net = 0
+    var cost = 0
+    var rest = 0
+    val tax = 0.7618
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var editSalaryValue =
+        val editSalaryValue =
             findViewById<EditText>(R.id.editSalaryValue)
 
-        var editRentValue =
+        val editRentValue =
             findViewById<EditText>(R.id.editRentValue)
 
-        var editElectricityValue =
+        val editElectricityValue =
             findViewById<EditText>(R.id.editElectricityValue)
 
-        var editInternetValue =
+        val editInternetValue =
             findViewById<EditText>(R.id.editInternetValue)
 
-        var editFoodValue =
+        val editFoodValue =
             findViewById<EditText>(R.id.editFoodValue)
 
-        var editTransportValue =
+        val editTransportValue =
             findViewById<EditText>(R.id.editTransportValue)
 
-        var editInsuranceValue =
+        val editInsuranceValue =
             findViewById<EditText>(R.id.editInsuranceValue)
 
-        var txtNetSalaryValue =
+        val txtNetSalaryValue =
             findViewById<TextView>(R.id.txtNetSalaryValue)
 
-        var txtLifeCostValue =
+        val txtLifeCostValue =
             findViewById<TextView>(R.id.txtLifeCostValue)
 
-        var txtRestValue =
+        val txtRestValue =
             findViewById<TextView>(R.id.txtRestValue)
 
         val btnCalculate =
@@ -70,65 +70,65 @@ class MainActivity : AppCompatActivity() {
 
             if (editSalaryValue.text.toString().isEmpty()) {
 
-                editSalaryValue.setError("Please insert salary!")
+                editSalaryValue.error = "Please insert salary!"
                 editSalaryValue.requestFocus()
 
             }
 
             else if (editRentValue.text.toString().isEmpty()) {
 
-                editRentValue.setError("Please insert Rent Cost!")
+                editRentValue.error = "Please insert Rent Cost!"
                 editRentValue.requestFocus()
             }
 
             else if (editElectricityValue.text.toString().isEmpty()) {
 
-                editElectricityValue.setError("Please insert Electricity Cost!")
+                editElectricityValue.error = "Please insert Electricity Cost!"
                 editElectricityValue.requestFocus()
             }
 
             else if (editInternetValue.text.toString().isEmpty()) {
 
-                editInternetValue.setError("Please insert Broadband Cost!")
+                editInternetValue.error = "Please insert Broadband Cost!"
                 editInternetValue.requestFocus()
             }
 
             else if (editFoodValue.text.toString().isEmpty()) {
 
-                editFoodValue.setError("Please insert Food Cost!")
+                editFoodValue.error = "Please insert Food Cost!"
                 editFoodValue.requestFocus()
             }
 
             else if (editTransportValue.text.toString().isEmpty()) {
 
-                editTransportValue.setError("Please insert Transport Cost!")
+                editTransportValue.error = "Please insert Transport Cost!"
                 editTransportValue.requestFocus()
             }
 
             else if (editInsuranceValue.text.toString().isEmpty()) {
 
-                editInsuranceValue.setError("Please insert Insurance Cost!")
+                editInsuranceValue.error = "Please insert Insurance Cost!"
                 editInsuranceValue.requestFocus()
             }
 
             else {
 
 
-                Salary = editSalaryValue.text.toString().toInt()
-                Apartment = editRentValue.text.toString().toInt()
-                Electricity = editElectricityValue.text.toString().toInt()
-                Internet = editInternetValue.text.toString().toInt()
-                Food = editFoodValue.text.toString().toInt()
-                Transport = editTransportValue.text.toString().toInt()
-                Insurance = editInsuranceValue.text.toString().toInt()
+                salary = editSalaryValue.text.toString().toInt()
+                apartment = editRentValue.text.toString().toInt()
+                electricity = editElectricityValue.text.toString().toInt()
+                internet = editInternetValue.text.toString().toInt()
+                food = editFoodValue.text.toString().toInt()
+                transport = editTransportValue.text.toString().toInt()
+                insurance = editInsuranceValue.text.toString().toInt()
 
-                Net = (Salary * Tax).toInt()
-                Cost = Apartment + Electricity + Internet + Food + Transport + Insurance
-                Rest = Net - Cost
+                net = (salary * tax).toInt()
+                cost = apartment + electricity + internet + food + transport + insurance
+                rest = net - cost
 
-                txtNetSalaryValue.setText(Net.toString())
-                txtLifeCostValue.setText(Cost.toString())
-                txtRestValue.setText(Rest.toString())
+                txtNetSalaryValue.text = net.toString()
+                txtLifeCostValue.text = cost.toString()
+                txtRestValue.text = rest.toString()
 
                 closeKeyboard(txtRestValue)
 
@@ -143,12 +143,12 @@ class MainActivity : AppCompatActivity() {
 
         btnClear.setOnClickListener {
 
-            Net = 0
-            Cost = 0
-            Rest = 0
-            txtNetSalaryValue.setText("")
-            txtLifeCostValue.setText("")
-            txtRestValue.setText("")
+            net = 0
+            cost = 0
+            rest = 0
+            txtNetSalaryValue.text = ""
+            txtLifeCostValue.text = ""
+            txtRestValue.text = ""
             editElectricityValue.setText("")
             editRentValue.setText("")
             editFoodValue.setText("")
