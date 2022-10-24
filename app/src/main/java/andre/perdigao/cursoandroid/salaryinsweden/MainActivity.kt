@@ -3,7 +3,6 @@ package andre.perdigao.cursoandroid.salaryinsweden
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
@@ -11,53 +10,54 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 
-var Salary = 0
-var Apartment = 0
-var Internet = 0
-var Electricity = 0
-var Food = 0
-var Transport = 0
-var Insurance = 0
-var Net = 0
-var Cost = 0
-var Rest = 0
-val Tax = 0.7618
 
 class MainActivity : AppCompatActivity() {
+
+    var Salary = 0
+    var Apartment = 0
+    var Internet = 0
+    var Electricity = 0
+    var Food = 0
+    var Transport = 0
+    var Insurance = 0
+    var Net = 0
+    var Cost = 0
+    var Rest = 0
+    val Tax = 0.7618
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val editSalaryValue =
+        var editSalaryValue =
             findViewById<EditText>(R.id.editSalaryValue)
 
-        val editRentValue =
+        var editRentValue =
             findViewById<EditText>(R.id.editRentValue)
 
-        val editElectricityValue =
+        var editElectricityValue =
             findViewById<EditText>(R.id.editElectricityValue)
 
-        val editInternetValue =
+        var editInternetValue =
             findViewById<EditText>(R.id.editInternetValue)
 
-        val editFoodValue =
+        var editFoodValue =
             findViewById<EditText>(R.id.editFoodValue)
 
-        val editTransportValue =
+        var editTransportValue =
             findViewById<EditText>(R.id.editTransportValue)
 
-        val editInsuranceValue =
+        var editInsuranceValue =
             findViewById<EditText>(R.id.editInsuranceValue)
 
-        val txtNetSalaryValue =
+        var txtNetSalaryValue =
             findViewById<TextView>(R.id.txtNetSalaryValue)
 
-        val txtLifeCostValue =
+        var txtLifeCostValue =
             findViewById<TextView>(R.id.txtLifeCostValue)
 
-        val txtRestValue =
+        var txtRestValue =
             findViewById<TextView>(R.id.txtRestValue)
 
         val btnCalculate =
