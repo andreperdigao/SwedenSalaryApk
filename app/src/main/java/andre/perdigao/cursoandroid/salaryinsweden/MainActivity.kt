@@ -25,6 +25,14 @@ class MainActivity : AppCompatActivity() {
     var rest = 0
     val tax = 0.7618
 
+    private val KEY_NET = "net"
+    private val KEY_COST = "cost"
+    private val KEY_REST = "rest"
+
+    var txtNetSalaryValue: TextView? = null
+    var txtLifeCostValue: TextView? = null
+    var txtRestValue: TextView? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,13 +59,13 @@ class MainActivity : AppCompatActivity() {
         val editInsuranceValue =
             findViewById<EditText>(R.id.editInsuranceValue)
 
-        val txtNetSalaryValue =
+        txtNetSalaryValue =
             findViewById<TextView>(R.id.txtNetSalaryValue)
 
-        val txtLifeCostValue =
+        txtLifeCostValue =
             findViewById<TextView>(R.id.txtLifeCostValue)
 
-        val txtRestValue =
+        txtRestValue =
             findViewById<TextView>(R.id.txtRestValue)
 
         val btnCalculate =
@@ -72,7 +80,6 @@ class MainActivity : AppCompatActivity() {
 
                 editSalaryValue.error = "Please insert salary!"
                 editSalaryValue.requestFocus()
-
             }
 
             else if (editRentValue.text.toString().isEmpty()) {
@@ -126,11 +133,11 @@ class MainActivity : AppCompatActivity() {
                 cost = apartment + electricity + internet + food + transport + insurance
                 rest = net - cost
 
-                txtNetSalaryValue.text = net.toString()
-                txtLifeCostValue.text = cost.toString()
-                txtRestValue.text = rest.toString()
+                txtNetSalaryValue!!.text = net.toString()
+                txtLifeCostValue!!.text = cost.toString()
+                txtRestValue!!.text = rest.toString()
 
-                closeKeyboard(txtRestValue)
+                closeKeyboard(txtRestValue!!)
 
 
                 Toast.makeText(
@@ -146,9 +153,9 @@ class MainActivity : AppCompatActivity() {
             net = 0
             cost = 0
             rest = 0
-            txtNetSalaryValue.text = ""
-            txtLifeCostValue.text = ""
-            txtRestValue.text = ""
+            txtNetSalaryValue!!.text = ""
+            txtLifeCostValue!!.text = ""
+            txtRestValue!!.text = ""
             editElectricityValue.setText("")
             editRentValue.setText("")
             editFoodValue.setText("")
@@ -160,6 +167,24 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this,"Clear Success",
             Toast.LENGTH_SHORT).show()
         }
+
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt(KEY_NET,net)
+        outState.putInt(KEY_COST,cost)
+        outState.putInt(KEY_REST,rest)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        net = savedInstanceState.getInt(KEY_NET,0)
+        txtNetSalaryValue!!.text = net.toString()
+        cost = savedInstanceState.getInt(KEY_COST,0)
+        txtLifeCostValue!!.text = cost.toString()
+        rest = savedInstanceState.getInt(KEY_REST,0)
+        txtRestValue!!.text = rest.toString()
 
     }
 
