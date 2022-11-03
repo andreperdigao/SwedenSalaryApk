@@ -13,25 +13,25 @@ import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
-    var salary = 0
-    var apartment = 0
-    var internet = 0
-    var electricity = 0
-    var food = 0
-    var transport = 0
-    var insurance = 0
-    var net = 0
-    var cost = 0
-    var rest = 0
-    val tax = 0.7618
+    private var salary = 0
+    private var apartment = 0
+    private var internet = 0
+    private var electricity = 0
+    private var food = 0
+    private var transport = 0
+    private var insurance = 0
+    private var net = 0
+    private var cost = 0
+    private var rest = 0
+    private val tax = 0.7618
 
-    private val KEY_NET = "net"
-    private val KEY_COST = "cost"
-    private val KEY_REST = "rest"
+    private val keyNet = "net"
+    private val keyCost = "cost"
+    private val keyRest = "rest"
 
-    var txtNetSalaryValue: TextView? = null
-    var txtLifeCostValue: TextView? = null
-    var txtRestValue: TextView? = null
+    private var txtNetSalaryValue: TextView? = null
+    private var txtLifeCostValue: TextView? = null
+    private var txtRestValue: TextView? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,13 +60,13 @@ class MainActivity : AppCompatActivity() {
             findViewById<EditText>(R.id.editInsuranceValue)
 
         txtNetSalaryValue =
-            findViewById<TextView>(R.id.txtNetSalaryValue)
+            findViewById(R.id.txtNetSalaryValue)
 
         txtLifeCostValue =
-            findViewById<TextView>(R.id.txtLifeCostValue)
+            findViewById(R.id.txtLifeCostValue)
 
         txtRestValue =
-            findViewById<TextView>(R.id.txtRestValue)
+            findViewById(R.id.txtRestValue)
 
         val btnCalculate =
             findViewById<Button>(R.id.btnCalculate)
@@ -172,18 +172,18 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putInt(KEY_NET,net)
-        outState.putInt(KEY_COST,cost)
-        outState.putInt(KEY_REST,rest)
+        outState.putInt(keyNet,net)
+        outState.putInt(keyCost,cost)
+        outState.putInt(keyRest,rest)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        net = savedInstanceState.getInt(KEY_NET,0)
+        net = savedInstanceState.getInt(keyNet,0)
         txtNetSalaryValue!!.text = net.toString()
-        cost = savedInstanceState.getInt(KEY_COST,0)
+        cost = savedInstanceState.getInt(keyCost,0)
         txtLifeCostValue!!.text = cost.toString()
-        rest = savedInstanceState.getInt(KEY_REST,0)
+        rest = savedInstanceState.getInt(keyRest,0)
         txtRestValue!!.text = rest.toString()
 
     }
